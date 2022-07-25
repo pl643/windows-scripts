@@ -18,8 +18,5 @@ FOR /F "tokens=* USEBACKQ" %%F IN (`fzf.exe`) DO (
     SET FZF_SELECTION=%%F
 )
 if not "%FZF_SELECTION%"=="" (
-    echo FZF_SELECTION is not empty
     start /b "" "%FZF_SELECTION%"
-) else (
-    echo FZF_SELECTION is empty
 )
