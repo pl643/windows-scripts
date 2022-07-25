@@ -14,9 +14,12 @@ rem Defaults to Home folder
 set START_DIR=%USERPROFILE%
 cd %START_DIR%
 
-rem TODO: fix bug for files with space, gets a dialog box that says it can't find a 'file' when the file is "file with space"
-
 FOR /F "tokens=* USEBACKQ" %%F IN (`fzf.exe`) DO (
     SET FZF_SELECTION=%%F
 )
-start /b "" "%FZF_SELECTION%"
+if not "%FZF_SELECTION%"=="" (
+    echo FZF_SELECTION is not empty
+    start /b "" "%FZF_SELECTION%"
+) else (
+    echo FZF_SELECTION is empty
+)
