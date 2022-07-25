@@ -17,6 +17,6 @@ cd %START_DIR%
 rem TODO: fix bug for files with space, gets a dialog box that says it can't find a 'file' when the file is "file with space"
 
 FOR /F "tokens=* USEBACKQ" %%F IN (`fzf.exe`) DO (
-    start /b %%F
+    SET FZF_SELECTION=%%F
 )
-rem exit
+start /b "" "%FZF_SELECTION%"
